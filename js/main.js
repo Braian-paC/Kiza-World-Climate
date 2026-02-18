@@ -1,17 +1,19 @@
-import { getCountry } from "./api.js"
+import { getCountryWithWeather } from "./api.js"
 import { showCountry, showError } from "./ui.js"
 
-const button = document.getElementById("searchBtn")
+const searchBtn = document.getElementById("searchBtn")
 const input = document.getElementById("countryInput")
 
-button.addEventListener("click", async () => {
+searchBtn.addEventListener("click", async () => {
   try {
     const countryName = input.value
 
-    const country = await getCountry(countryName)
+    const data = await getCountryWithWeather(countryName)
 
-    showCountry(country)
+    showCountry(data)
   } catch (error) {
     showError(error.message)
   }
 })
+
+
