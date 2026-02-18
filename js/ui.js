@@ -1,6 +1,6 @@
 export function showError(message) {
   const result = document.getElementById("result")
-  result.innerHTML = `<p style="color:red;">${message}</p>`
+  result.innerHTML = `<p class="error">${message}</p>`
 }
 
 export function showCountry(data) {
