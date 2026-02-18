@@ -4,15 +4,22 @@ import { showCountry, showError } from "./ui.js"
 const searchBtn = document.getElementById("searchBtn")
 const input = document.getElementById("countryInput")
 
-searchBtn.addEventListener("click", async () => {
-  try {
-    const countryName = input.value
+function performSearch() {
+  const countryName = input.value.trim()
+  if (!countryName) {
+    showError("Por favor informe o nome de um país")
+    return
+  }
 
-    const data = await getCountryWithWeather(countryName)
+  getCountryWithWeather(countryName)
+    .then(showCountry)
+    .catch(err => showError(err.message))
+}
 
-    showCountry(data)
-  } catch (error) {
-    showError(error.message)
+searchBtn.addEventListener("click", performSearch)
+input.addEventListener("keydown", e => {
+  if (e.key === "Enter") {
+    performSearch()
   }
 })
 

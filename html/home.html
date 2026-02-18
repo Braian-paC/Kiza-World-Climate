@@ -1,6 +1,8 @@
 <!DOCTYPE html>
-<html>
+<html lang="pt-BR">
 <head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
   <title>World Climate</title>
   <link rel="stylesheet" href="../style.css">
 </head>
@@ -8,7 +10,8 @@
 
   <h1>World Climate</h1>
 
-  <input id="countryInput" placeholder="Digite um país">
+  <label for="countryInput" class="visually-hidden">Nome do país</label>
+  <input type="text" id="countryInput" placeholder="Digite um país" autocomplete="off">
   <button id="searchBtn">Buscar</button>
 
   <div id="result"></div>

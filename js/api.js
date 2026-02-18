@@ -13,7 +13,7 @@ export async function getCountryWithWeather(countryName) {
   const country = countryData[0]
 
   const capital = country.capital[0]
-  
+
   const weatherResponse = await fetch(
     `https://api.openweathermap.org/data/2.5/weather?q=${capital}&units=metric&appid=${API_KEY}`
   )
